@@ -1,4 +1,3 @@
-package user;
 public class User {
     private String username,name,address,profession;
     private int trialUsed;
