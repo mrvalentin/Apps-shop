@@ -1,3 +1,5 @@
+package appstore;
+
 import java.util.Scanner;
 
 class Main {
