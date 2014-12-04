@@ -1,6 +1,13 @@
-public class User {
+public class User implements java.io.Serializable {
   private String username,name,address,profession;
   private int trialUsed;
+  public User(String username, String name, String address, String profession){
+      this.username = username;
+      this.name = name;
+      this.address = address;
+      this.profession = profession;
+      this.trialUsed = 0;
+  }
   public String getUsername(){
   return username;
   }
