@@ -16,16 +16,16 @@ public class AppContainer extends Container {
         super("App");
     }
     
-    public void storeApps(){
+    public void store(){
         super.storeArrayList();
     }
     
-    public void addApp(App app){
-        super.addObject(app);
+    public void add(App app){
+        super.add(app);
     }
     
     //searches applist for app with given name
-    public App findApp(String name){
+    public App find(String name){
         
         //initializes iterator
         Iterator it = l.iterator();
