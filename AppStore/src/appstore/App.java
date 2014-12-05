@@ -40,7 +40,7 @@ public class App {
    }
    public void AddPurchases()
    {
-       numberOfPurchases++;
+       this.numberOfPurchases++;
    }
    public String getType()
    {
