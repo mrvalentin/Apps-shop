@@ -18,18 +18,18 @@ public class UserContainer extends Container {
     }
     
     //calls method from Storage to store users ArrayList in this object
-    public void storeUsers(){
+    public void store(){
         super.storeArrayList();
     }
     
     //adds user to ArrayList and stores new arraylist
-    public void addUser(User user){
-        super.addObject(user);
-        storeUsers();
+    public void add(User user){
+        super.add(user);
+        store();
     }
     
     //searches userlist for 
-    public User findUser(String username){
+    public User find(String username){
         
         //initializes iterator
         Iterator it = l.iterator();
@@ -46,5 +46,10 @@ public class UserContainer extends Container {
         return null;
     }
     
+    //deletes user with given username
+    public void delete(String username){
+        User u = find(username);
+        l.remove(u);
+    }
     
 }
