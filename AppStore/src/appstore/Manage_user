@@ -18,6 +18,7 @@ public class Manage_user {
         Scanner input=new Scanner(System.in);
         //user_input:the variable for what user input
         String user_input;
+        //as far as container can't be static I have to create object of UserContainer
         UserContainer container=new UserContainer();
         String[] array={"username","name","address","profession"};
         for(int i=0;i<array.length;i++){
