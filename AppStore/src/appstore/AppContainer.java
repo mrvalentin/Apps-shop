@@ -24,17 +24,17 @@ public class AppContainer extends Container {
         super.addObject(app);
     }
     
-    //searches userlist for 
-    public User findApp(String appname){
+    //searches applist for app with given name
+    public App findApp(String name){
         
         //initializes iterator
         Iterator it = l.iterator();
         
-        //checks username while a user exists
+        //checks app name while an app exists
         while (it.hasNext()){
-            User u = (User) it.next();
-            if (u.getUsername().equals(username)){
-                return u;
+            App a = (App) it.next();
+            if (a.getName().equals(name)){
+                return a;
             }
         }
         
