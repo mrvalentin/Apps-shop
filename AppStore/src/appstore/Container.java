@@ -40,7 +40,7 @@ public abstract class Container implements java.io.Serializable {
     
     //adds new object into ArrayList
     //returns true if successfull
-    public < E > boolean addObject(E object){
+    public < E > boolean add(E object){
         boolean add = l.add(object);
         return add;
     }
