@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * ALL TRESPASSERS WILL BE PROSEC uuu Ted
  */
 
 package appstore;
@@ -9,18 +7,24 @@ package appstore;
 import java.util.ArrayList;
 /**
  *
- * @author Robert
+ * @mage Robert
  */
+
+//this abstract class interacts with Storage to retrieve and store ArrayList object file 
+//(it doesnt because its abstract but you should know)
 public abstract class Container implements java.io.Serializable {
     
     protected ArrayList l;
+    //classname is the class of objects stored in arraylist
     protected String classname;
     
     public Container(String classname){
+        //check if file exists before retrieving it
         if (Storage.fileExists(classname)){
             l = Storage.getObject(classname);
             this.classname=classname;
         }
+        //retireves ArrayList object
         else {
             l = new ArrayList();
             this.classname = classname;
@@ -28,6 +32,8 @@ public abstract class Container implements java.io.Serializable {
     }
     
     //sends ArrayList of instance to class Storage to be serialized into file
+    //ALL objects INSIDE the ArrayList object MUST be SERIALIZABLE
+    //ALL objects inside ArrayList should be of same class because they will be stored in a file with the name of the class
     public void storeArrayList(){
         Storage.storeObject(l, classname);
     }
