@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * ALL TRESPASSERS WILL BE PROSEC uuu Ted
  */
 
 package appstore;
@@ -10,47 +8,67 @@ import java.io.*;
 
 /**
  *
- * @author Robert
+ * @mage Robert
  */
 public class Storage {
     
-    //returns object from file
+    //returns serializable object that has been stored in file
     public static < E > E getObject(String filename){
         
-        //initializes object
+        //initializes object that will be returned
+        //E can be any object
         E object = null;
         
+        //error handling
         try {
-            //returns serialized object from file
-            FileInputStream fileIn = new FileInputStream("tmp/"+filename+".ser");
+            //connects to file
+            FileInputStream fileIn = new FileInputStream(filename+".ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
+            
+            //returns boject in file
             object = (E) in.readObject();
+            
+            //close connection to file
             in.close();
             fileIn.close();
+            
         }catch(IOException | ClassNotFoundException e){
+            //prints error cause
+            //there may be better way to do this
             e.printStackTrace();
         }
         return object;
     }
     
     //stores serializable object
+    //previous object with same filename will be OVERWRITTEN
     public static < E > void storeObject(E object, String filename){
         try {
-            //serializes collection into file
-            FileOutputStream fileOut = new FileOutputStream("tmp/"+filename+".ser");
+            //connects to file
+            FileOutputStream fileOut = new FileOutputStream(filename+".ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            
+            //serializes and stores object into file
             out.writeObject(object);
+            
+            //closes connection to file
             out.close();
             fileOut.close();
         }
         catch(IOException e){
+            //prints error cause
+            //there may be better way to do this
             e.printStackTrace();
         }
     } 
     
     //returns ture if file exists
     public static boolean fileExists(String filename){
-        File x = new File("/tmp/"+filename+".ser");
+        
+        //path to file
+        File x = new File(filename+".ser");
+        
+        //checks if file exists
         return x.exists();
     }
 }
