@@ -58,7 +58,7 @@ public class App {
 	
 	
 	
-	// set app's category
+	// get app's category
 	public String getCategory () {
 		return this.category;
 	}
