@@ -38,7 +38,7 @@ class Main {
                 
                 // User registration
                 case "1.2":
-                    System.out.println("User register\n");
+                    Manage_user.Registration();
                     break;
                     
                 case "exit":
