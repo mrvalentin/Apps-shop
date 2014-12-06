@@ -9,6 +9,13 @@ public class User implements java.io.Serializable {
       this.profession = profession;
       this.trialUsed = 0;
   }
+  public User(){
+      this.username ="";
+      this.name = "";
+      this.address = "";
+      this.profession = "";
+      this.trialUsed = 0;
+  }
   public String getUsername(){
   return username;
   }
