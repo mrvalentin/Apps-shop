@@ -1,3 +1,4 @@
+package appstore;
 public class User implements java.io.Serializable {
   private String username,name,address,profession;
   private int trialUsed;
