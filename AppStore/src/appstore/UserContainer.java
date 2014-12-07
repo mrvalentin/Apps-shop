@@ -1,5 +1,5 @@
 /*
- * ALL TRESPASSERS WILL BE PROSEC uuu Ted
+ * ALL TRESPASSERS WILL BE PROS
  */
 
 package appstore;
@@ -24,11 +24,13 @@ public class UserContainer extends Container {
     
     //adds user to ArrayList and stores new arraylist
     public void add(User user){
-        super.add(user);
-        store();
+        //checks if username already exists
+        if (this.find(user.getUsername())==null){
+            super.add(user);
+        }
     }
     
-    //searches userlist for 
+    //searches userlist for username
     public User find(String username){
         
         //initializes iterator
@@ -51,5 +53,6 @@ public class UserContainer extends Container {
         User u = find(username);
         l.remove(u);
     }
+    
     
 }

@@ -1,5 +1,5 @@
 /*
- * ALL TRESPASSERS WILL BE PROSEC uuu Ted
+ * ALL TRESPASSERS WILL BE PROS
  */
 
 package appstore;

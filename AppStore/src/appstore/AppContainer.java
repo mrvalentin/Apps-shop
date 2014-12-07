@@ -1,5 +1,5 @@
 /*
- *ALL TRESPASSERS WILL BE PRO SEC uuu Ted
+ *ALL TRESPASSERS WILL BE PROS
  */
 
 package appstore;
@@ -20,8 +20,12 @@ public class AppContainer extends Container {
         super.storeArrayList();
     }
     
+    //adds App object to ArrayList
     public void add(App app){
-        super.add(app);
+        //checks if app name already exists
+        if (this.find(app.getName())==null){
+            super.add(app);
+        }
     }
     
     //searches applist for app with given name
