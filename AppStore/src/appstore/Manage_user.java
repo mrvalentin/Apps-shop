@@ -41,22 +41,31 @@ public class Manage_user {
         String user_input;
         //as far as container can't be static I have to create object of UserContainer
         UserContainer container=new UserContainer();
+        //the array that will be overwritten by the real values in "for" loop.
         String[] array={"username","name","address","profession"};
+        //the next loop overwrite array above with real values.For example element "username" will have have the the real username of user
         for(int i=0;i<array.length;i++){
+            //display menu
             System.out.println("Please write "+array[i]+":");
+            //ask for input until it meets Validation criteria
             do{
             user_input=input.nextLine();
             }while(Validation(array[i],user_input));
+            //push the user input at the following array position
             array[i]=user_input;
         }
+        //create an object of type User which has the info from the registration(our registered user)
         User user=new User(array[0],array[1],array[2],array[3]);
+        //add registered user to the array of all users
         container.add(user);
     }
     public static boolean Validation(String key,String value){
-        if(value.contains("fuck")||value.contains("suck")||value.contains("wanker")||value.contains("noob")
-                ||value.contains("dick")||value.contains("Robert")){
-            System.out.println("Hey!Watch your mouth you motherfucker!");
+        String[] censored_words={"fuck","suck","wanker","noob","dick"};
+        for(int i=0;i<array.lenght;i++){
+        if(value.contains(array[i])){
+            System.out.println("You can't use censored words.");
             return true;
+        }
         }
         UserContainer container= new UserContainer();
         switch(key){
