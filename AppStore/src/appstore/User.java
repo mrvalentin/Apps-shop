@@ -25,15 +25,15 @@ public class User implements java.io.Serializable {
   public String getUsername(){
   return this.username;
   }
-  //returns name
+  //returns user'name
   public String getName(){
   return this.name;
   }
-  //returns address
+  //returns user' address
   public String getAddress(){
   return this.address;
   }
-  // returns profession
+  // returns user' profession
   public String getProfession(){
   return this.profession;
   }
