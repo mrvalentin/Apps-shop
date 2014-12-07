@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Valentin
  */
-public class Manage_user {
+public class ManageUser {
     //Login class that is asking for the correct login until it is correct or user typed exit
     public static User Login(){
         UserContainer container=new UserContainer();
