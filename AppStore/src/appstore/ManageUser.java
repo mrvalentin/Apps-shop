@@ -6,6 +6,7 @@
 
 package appstore;
 
+import appstore.containers.UserContainer;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Scanner;
  */
 public class ManageUser {
     //Login class that is asking for the correct login until it is correct or user typed exit
-    public static User Login(){
+    public static User Login() {
         UserContainer container=new UserContainer();
         System.out.println("Write down your username,please:");
         Scanner input=new Scanner(System.in);

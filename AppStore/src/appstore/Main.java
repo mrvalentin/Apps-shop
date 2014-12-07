@@ -1,18 +1,26 @@
 package appstore;
 
+import appstore.containers.UserContainer;
 import java.util.Scanner;
 
 class Main {
     
     // main method
     public static void main (String[] args) {
+        
+        //creates bob user so that you can try logging in as bob
+        UserContainer users = new UserContainer();
+        User bob=new User("bob", "Boob", "lalavale", "roach");
+        users.add(bob);
+        users.store();
+        
         //an object that represents the current user that is using the program
-        User user=new User();
+        User user;
         // keeping the application running
         boolean run = true;
         
         // store the user input
-        String command = "";
+        String command;
         
         // initialize the scanner
         Scanner userInput = new Scanner(System.in);
@@ -34,15 +42,24 @@ class Main {
                 
                 // User login
                 case "1.1":
+                    
+                    
+                    //user login
+                    user = ManageUser.Login();
+                    
+                    
+                    //Login will be called twice with code below  Sincerely, Rob :P
+                    /*
                     //If the user can't type his username correctly
-                    if(Manage_user.Login().equals(null))
+                    if(ManageUser.Login() == null)
                         break;
                     //If the user typed it correctly, the user object gets the info of the person who logged in
-                    user=Manage_user.Login();
+                    user=ManageUser.Login();
+                    */
                 
                 // User registration
                 case "1.2":
-                    Manage_user.Registration();
+                    ManageUser.Registration();
                     break;
                     
                 case "exit":
@@ -59,7 +76,6 @@ class Main {
         // Goodbye message
         System.out.println("Thank you for using AppStore v0.1 \n"
                 + "Goodbye.");
-        
     } 
     
 }
