@@ -50,7 +50,7 @@ public class UserContainer extends Container {
     
     //deletes user with given username
     public void delete(String username){
-        User u = find(username);
+        User u = this.find(username);
         l.remove(u);
     }
     

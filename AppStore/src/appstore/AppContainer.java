@@ -45,5 +45,10 @@ public class AppContainer extends Container {
         //returns null if no match is found
         return null;
     }
-
+    
+    //deletes app with given name
+    public void delete(String name){
+        App a = this.find(name);
+        l.remove(a);
+    }
 }
