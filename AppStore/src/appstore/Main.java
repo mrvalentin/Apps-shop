@@ -54,13 +54,6 @@ class Main {
                     //If the user typed it correctly, the user object gets the info of the person who logged in
                     user=ManageUser.Login();
                     */
-                
-                    //If the user can't type his / her username correctly
-                    if(ManageUser.Login() == null)
-                        break;
-                    //If the user typed it correctly, the user object gets the info of the person who logged in
-                    System.out.println("You are logged in "); 
-                    user=ManageUser.Login();
                     
                 // User registration
                 case "1.2":
