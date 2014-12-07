@@ -42,9 +42,6 @@ class Main {
                 
                 // User login
                 case "1.1":
-<<<<<<< HEAD
-                    
-                    
                     //user login
                     user = ManageUser.Login();
                     
@@ -58,7 +55,6 @@ class Main {
                     user=ManageUser.Login();
                     */
                 
-=======
                     //If the user can't type his / her username correctly
                     if(ManageUser.Login() == null)
                         break;
@@ -66,7 +62,6 @@ class Main {
                     System.out.println("You are logged in "); 
                     user=ManageUser.Login();
                     
->>>>>>> d250b3d0ba111d8b38040b5de6dd305a9ae47d92
                 // User registration
                 case "1.2":
                     ManageUser.Registration();
