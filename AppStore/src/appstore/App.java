@@ -20,7 +20,7 @@ public class App {
 		this.description = description;
 		this.category = category;
 		this.cost = cost;
-		this.trialAavailable = trialAvailable;
+		this.trialAvailable = trialAvailable;
 	}
 	
 	// get app's name
