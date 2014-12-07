@@ -62,25 +62,28 @@ public class Manage_user {
         switch(key){
             case "username":
                 if(container.find(value)!=null){
-                    System.out.println("There is another user with "+value+" username.Please write another name:");
+                    System.out.println("The username: "+value+" belongs to another user. Please write another name:");
                     return true;
                 }
                 else if(value.equals(null)||value.contains(" ")||value.isEmpty()||value.length()>10){
                     System.out.println("Your username must not have free spaces,be empty or has more than 10 characters.Please write your name again:");
                     return true;
                 }
-                else if(value.equals("Robert")){
-                    System.out.println("Robert you smell.");
+                else if(value.length()<5)){
+                    System.out.println("Username is too short. Please type your name again: ");
                     return true;
                 }
                 return false;
                 
             case "name":
-                if(value.equals(null)||value.contains("#")||value.isEmpty()){
-                   System.out.println("Your name can't be empty or contain # symbol.Please write your name again:");
+                if(value.equals(null)||value.isEmpty()){
+                    System.out.println("Your name is required.Please type your name:");
+                }
+                else if(value.equals(null)||value.contains("#")|| value.contains("*") || value.contains("$")){
+                   System.out.println("Your name cannot contain numbers or symbols, it should only contain characters. Please write your name again:");
                    return true;
                 }
-                else if(value.equals("Robert")){
+                else if(value.equals("a-zA-Z")){
                     System.out.println("Robert you smell.");
                     return true;
                 }
@@ -95,7 +98,7 @@ public class Manage_user {
                 
             case "profession":
                 if(value.equals("student")){
-                    System.out.println("Yo man you have 25% discount!");
+                    System.out.println("Great news! You are eligible for a 25% discount:)");
                     return false;
                 }
                 else if(value.isEmpty()||value.equals(null)){
