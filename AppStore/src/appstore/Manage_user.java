@@ -76,7 +76,7 @@ public class Manage_user {
                     System.out.println("The username: "+value+" belongs to another user. Please write another name:");
                     return true;
                 }
-                else if(value.equals(null)||value.contains(" ")||value.isEmpty()||value.length()>10){
+                else if(value == null||value.contains(" ")||value.isEmpty()||value.length()>10){
                     System.out.println("Your username must not have free spaces,be empty or has more than 10 characters.Please write your name again:");
                     return true;
                 }
@@ -87,17 +87,17 @@ public class Manage_user {
                 return false;
                 
             case "name":
-                if(value.equals(null)||value.isEmpty()){
+                if(value == null||value.isEmpty()){
                     System.out.println("Your name is required.Please type your name:");
                 }
-                else if(value.equals(null)||value.contains("#")|| value.contains("*") || value.contains("$")){
+                else if(value == null||value.contains("#")|| value.contains("*") || value.contains("$")){
                    System.out.println("Your name cannot contain numbers or symbols, it should only contain characters. Please write your name again:");
                    return true;
                 }
                 return false;
                 
             case "address":
-                if(value.equals(null)||value.isEmpty()){
+                if(value == null||value.isEmpty()){
                     System.out.println("The address can't be empty.Please write your address again:");
                     return true;
                 }
@@ -108,7 +108,7 @@ public class Manage_user {
                     System.out.println("Great news! You are eligible for a 25% discount:)");
                     return false;
                 }
-                else if(value.isEmpty()||value.equals(null)){
+                else if(value.isEmpty()||value == null){
                     System.out.println("The profession can't be empty.Please write your profession again:");
                     return true;
                 }
