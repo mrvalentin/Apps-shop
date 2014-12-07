@@ -7,7 +7,7 @@ class Main {
     // main method
     public static void main (String[] args) {
         //an object that represents the current user that is using the program
-        User user=new User();
+        User user=new User(username);
         // keeping the application running
         boolean run = true;
         
@@ -34,15 +34,16 @@ class Main {
                 
                 // User login
                 case "1.1":
-                    //If the user can't type his username correctly
-                    if(Manage_user.Login().equals(null))
+                    //If the user can't type his / her username correctly
+                    if(ManageUser.Login().equals(null))
                         break;
                     //If the user typed it correctly, the user object gets the info of the person who logged in
-                    user=Manage_user.Login();
-                
+                    System.out.println("You are logged in "); 
+                    user=ManageUser.Login();
+                    
                 // User registration
                 case "1.2":
-                    Manage_user.Registration();
+                    ManageUser.Registration();
                     break;
                     
                 case "exit":
