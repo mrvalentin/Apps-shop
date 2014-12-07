@@ -22,8 +22,8 @@ class Main {
             
             // Display the main menu
             System.out.println("1.0) User management");
-            System.out.println("\t1.1) User login");
-            System.out.println("\t1.2) User registration");
+            System.out.println("\t1.1) Existing user, log-in");
+            System.out.println("\t1.2) New user, sign-up");
             
             // Ask for user input
             System.out.print("\nCommand: ");
