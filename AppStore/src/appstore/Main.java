@@ -7,7 +7,7 @@ class Main {
     // main method
     public static void main (String[] args) {
         //an object that represents the current user that is using the program
-        User user=new User(username);
+        User user=new User();
         // keeping the application running
         boolean run = true;
         
