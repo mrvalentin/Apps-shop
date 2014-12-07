@@ -1,7 +1,11 @@
 package appstore;
+
 public class User implements java.io.Serializable {
+  
   private String username,name,address,profession;
   private int trialUsed;
+  
+  //Constructors
   public User(String username, String name, String address, String profession){
       this.username = username;
       this.name = name;
@@ -9,6 +13,7 @@ public class User implements java.io.Serializable {
       this.profession = profession;
       this.trialUsed = 0;
   }
+ 
   public User(){
       this.username ="";
       this.name = "";
@@ -16,21 +21,27 @@ public class User implements java.io.Serializable {
       this.profession = "";
       this.trialUsed = 0;
   }
+  // returns username
   public String getUsername(){
-  return username;
+  return this.username;
   }
+  //returns name
   public String getName(){
-  return name;
+  return this.name;
   }
+  //returns address
   public String getAddress(){
-  return address;
+  return this.address;
   }
+  // returns profession
   public String getProfession(){
-  return profession;
+  return this.profession;
   }
+  //returns number of tiral used by the user
   public int getTrialUsed(){
-  return trialUsed;
+  return this.trialUsed;
   }
+  //setters
   public void setUsername(String newUsername){
   this.username=newUsername;
   }
@@ -46,10 +57,11 @@ public class User implements java.io.Serializable {
   public void setTrialUsed(int newTrialUsed){
   this.trialUsed=newTrialUsed;
   }
+  // Shows user information on user's profile
   public void showProfile(){
-  System.out.println("The user "+this.username+":\n"
-  +"name:"+this.name+"\n"
-  +"address:"+this.address
-  +"\n"+"profession:"+this.profession+"\n");
+  System.out.println("Username: "+this.username+":\n"
+  +"Name:"+this.name+"\n"
+  +"Address:"+this.address
+  +"\n"+"Profession:"+this.profession+"\n");
   }
 }
