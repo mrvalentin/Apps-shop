@@ -61,11 +61,11 @@ public class Manage_user {
     }
     public static boolean Validation(String key,String value){
         String[] censored_words={"fuck","suck","wanker","noob","dick"};
-        for(int i=0;i<censored_words.length;i++){
-        if(value.contains(censored_words[i])){
-            System.out.println("You can't use censored words.");
-            return true;
-        }
+        for (String censored_word : censored_words) {
+            if (value.contains(censored_word)) {
+                System.out.println("You can't use censored words.");
+                return true;
+            }
         }
         UserContainer container= new UserContainer();
         switch(key){
