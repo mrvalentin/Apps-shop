@@ -61,8 +61,8 @@ public class Manage_user {
     }
     public static boolean Validation(String key,String value){
         String[] censored_words={"fuck","suck","wanker","noob","dick"};
-        for(int i=0;i<array.lenght;i++){
-        if(value.contains(array[i])){
+        for(int i=0;i<censored_words.length;i++){
+        if(value.contains(censored_words[i])){
             System.out.println("You can't use censored words.");
             return true;
         }
@@ -78,7 +78,7 @@ public class Manage_user {
                     System.out.println("Your username must not have free spaces,be empty or has more than 10 characters.Please write your name again:");
                     return true;
                 }
-                else if(value.length()<5)){
+                else if(value.length()<5){
                     System.out.println("Username is too short. Please type your name again: ");
                     return true;
                 }
