@@ -30,8 +30,8 @@ class Main {
             
             // Display the main menu
             System.out.println("1.0) User management");
-            System.out.println("\t1.1) User login");
-            System.out.println("\t1.2) User registration");
+            System.out.println("\t1.1) Existing user, log-in");
+            System.out.println("\t1.2) New user, sign-up");
             
             // Ask for user input
             System.out.print("\nCommand: ");
@@ -42,6 +42,7 @@ class Main {
                 
                 // User login
                 case "1.1":
+<<<<<<< HEAD
                     
                     
                     //user login
@@ -57,6 +58,15 @@ class Main {
                     user=ManageUser.Login();
                     */
                 
+=======
+                    //If the user can't type his / her username correctly
+                    if(ManageUser.Login().equals(null))
+                        break;
+                    //If the user typed it correctly, the user object gets the info of the person who logged in
+                    System.out.println("You are logged in "); 
+                    user=ManageUser.Login();
+                    
+>>>>>>> d250b3d0ba111d8b38040b5de6dd305a9ae47d92
                 // User registration
                 case "1.2":
                     ManageUser.Registration();

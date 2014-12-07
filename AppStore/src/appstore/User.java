@@ -42,20 +42,20 @@ public class User implements java.io.Serializable {
   return this.trialUsed;
   }
   //setters
-  public void setUsername(String newUsername){
-  this.username=newUsername;
+  public void setUsername(String username){
+  this.username=username;
   }
-  public void setName(String newName){
-  this.name=newName;
+  public void setName(String name){
+  this.name=name;
   }
-  public void setAddress(String newAddress){
-  this.address=newAddress;
+  public void setAddress(String address){
+  this.address=address;
   }
-  public void setProfession(String newProfession){
-  this.profession=newProfession;
+  public void setProfession(String profession){
+  this.profession=profession;
   }
-  public void setTrialUsed(int newTrialUsed){
-  this.trialUsed=newTrialUsed;
+  public void setTrialUsed(int trialUsed){
+  this.trialUsed=trialUsed;
   }
   // Shows user information on user's profile
   public void showProfile(){
