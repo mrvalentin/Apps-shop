@@ -92,10 +92,6 @@ public class Manage_user {
                    System.out.println("Your name cannot contain numbers or symbols, it should only contain characters. Please write your name again:");
                    return true;
                 }
-                else if(value.equals("a-zA-Z")){
-                    System.out.println("Robert you smell.");
-                    return true;
-                }
                 return false;
                 
             case "address":
