@@ -58,6 +58,8 @@ public class Manage_user {
         User user=new User(array[0],array[1],array[2],array[3]);
         //add registered user to the array of all users
         container.add(user);
+        //saves changes made to user array into file
+        container.store();
     }
     public static boolean Validation(String key,String value){
         String[] censored_words={"fuck","suck","wanker","noob","dick"};
