@@ -35,7 +35,7 @@ class Main {
                 // User login
                 case "1.1":
                     //If the user can't type his / her username correctly
-                    if(ManageUser.Login().equals(null))
+                    if(ManageUser.Login() == null)
                         break;
                     //If the user typed it correctly, the user object gets the info of the person who logged in
                     System.out.println("You are logged in "); 
