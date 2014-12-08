@@ -9,10 +9,10 @@ class Main {
     public static void main (String[] args) {
         
         //creates bob user so that you can try logging in as bob
-        UserContainer users = new UserContainer();
+        /*UserContainer users = new UserContainer();
         User bob=new User("bob", "Boob", "lalavale", "roach");
         users.add(bob);
-        users.store();
+        users.store(); */
         
         //an object that represents the current user that is using the program
         User user;
@@ -47,13 +47,13 @@ class Main {
                     
                     
                     //Login will be called twice with code below  Sincerely, Rob :P
-                    /*
+                    
                     //If the user can't type his username correctly
-                    if(ManageUser.Login() == null)
+                    if(user == null)
                         break;
                     //If the user typed it correctly, the user object gets the info of the person who logged in
                     user=ManageUser.Login();
-                    */
+                    
                     
                 // User registration
                 case "1.2":
