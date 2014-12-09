@@ -5,12 +5,8 @@ public class App {
 	private String developer;
 	private String description;
 	private String category;
-	
 	private int timesPurchased = 0;
-	
 	private double cost;
-	private double rating = 0;
-	
 	private boolean trialAvailable;
 	
 	// Constructor
@@ -71,7 +67,7 @@ public class App {
 	
 	
 	
-	// get app's number of purchases
+	// get app's number of purchases (the popularity of the app)
 	public int getTimesPurchased () {
 		return this.timesPurchased;
 	}
@@ -92,17 +88,6 @@ public class App {
 	public void setCost (double cost) {
 		this.cost = cost;
 	}
-	
-	
-	
-	// get app's rating
-	public double getRating () {
-		return this.rating / this.timesPurchased;
-	}
-	
-	// rate an app
-	public void rate (int rating) {
-		this.rating = this.rating + rating;
-	}
+
 	
 }
