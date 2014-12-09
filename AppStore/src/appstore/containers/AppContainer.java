@@ -52,4 +52,23 @@ public class AppContainer extends Container {
         App a = this.find(name);
         l.remove(a);
     }
+    
+    //returns sum of all apps purchased
+    public int getTotalPurchases(){
+        //this number will be returned
+        int total = 0;
+        
+        //initializes iterator to iterate through ArrayList
+        Iterator it = this.l.iterator(); 
+        
+        //adds total purchases of next app as long as there are more apps in array
+        while (it.hasNext()){
+            App a = (App) it.next();
+            total += a.getTimesPurchased();
+        }
+        
+        //returns sum of purchases of all apps
+        return total;
+    }
+    
 }

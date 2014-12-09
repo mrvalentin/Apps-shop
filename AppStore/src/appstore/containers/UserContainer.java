@@ -5,7 +5,6 @@
 package appstore.containers;
 
 import appstore.User;
-import appstore.containers.Container;
 import java.util.Iterator;
 
 /**
@@ -55,6 +54,7 @@ public class UserContainer extends Container {
         User u = this.find(username);
         l.remove(u);
     }
+    
     
     
 }
