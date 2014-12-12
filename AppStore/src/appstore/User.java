@@ -4,16 +4,11 @@ package appstore;
 
 public class User implements java.io.Serializable {
   
-  private String username,name,address;
+  private String username,name,address,profession;
   private int trialUsed;
-  private Prof profession;
-  
-  public enum Prof {
-      STUDENT, ACADEMIC, NORMAL
-  }
   
   //Constructors
-  public User(String username, String name, String address, Prof profession){
+  public User(String username, String name, String address, String profession){
       this.username = username;
       this.name = name;
       this.address = address;
@@ -25,7 +20,7 @@ public class User implements java.io.Serializable {
       this.username ="";
       this.name = "";
       this.address = "";
-      this.profession = Prof.NORMAL;
+      this.profession = "";
       this.trialUsed = 0;
   }
   // returns username
@@ -41,7 +36,7 @@ public class User implements java.io.Serializable {
   return this.address;
   }
   // returns user' profession
-  public Prof getProfession(){
+  public String getProfession(){
   return this.profession;
   }
   //returns number of tiral used by the user
@@ -58,7 +53,7 @@ public class User implements java.io.Serializable {
   public void setAddress(String address){
   this.address=address;
   }
-  public void setProfession(Prof profession){
+  public void setProfession(String profession){
   this.profession=profession;
   }
   public void setTrialUsed(int trialUsed){
