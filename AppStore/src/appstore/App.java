@@ -91,7 +91,9 @@ public class App {
 		this.cost = cost;
 	}
 
-	//returns price based on user
+	//returns price based on user's profession. 
+	//If user is a student then he/she will get a 25% discount,
+        //if he/she is an academic, he will get a 10% discount 
         public double checkPrice(User u){
             switch (u.getProfession()) {
                 case "student":
