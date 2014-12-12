@@ -1,4 +1,4 @@
-//Khalil
+//Khalil Jabir K1317897
 
 package appstore; 
 public class App {
@@ -91,5 +91,22 @@ public class App {
 		this.cost = cost;
 	}
 
-	
+	//returns price based on user
+        public double checkPrice(User u){
+            switch (u.getProfession()) {
+                case "student":
+                    return this.getCost()*0.75;
+                case "academic":
+                    return this.getCost()*0.9;
+                default:
+                    return this.getCost();
+            }
+        }
+        
+        //returns true if trial is available
+        public boolean trialAvailable()
+        {
+            return this.trialAvailable;
+        }
+        
 }
