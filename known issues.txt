@@ -1,0 +1,15 @@
+UserContainer.add() - Has an if statement to check is the user exists but
+it does not return anything. E.g. if the user exists we won't see an error
+or if the user does not exist and its added, we won't receive a confirmation from the method.
+
+================================================================================
+
+The User class does not return true / false during registration or login, so its not
+possible to check if the user has typed 'back' or completed the actions successfully.
+
+================================================================================
+
+In the ManageUser validation method we detect the discount but we do not record
+that anywhere else, therefore after the registration no discount is applied.
+
+================================================================================
