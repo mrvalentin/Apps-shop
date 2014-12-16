@@ -1,5 +1,7 @@
-/*
+/**
  *ALL TRESPASSERS WILL BE PROS
+ *
+ *@author Robert K1317131
  */
 
 package appstore.containers;
@@ -7,10 +9,6 @@ package appstore.containers;
 import appstore.App;
 import java.util.Iterator;
 
-/**
- *
- * @mage Robert
- */
 public class AppContainer extends Container {
 
     public AppContainer() {
