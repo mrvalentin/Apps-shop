@@ -12,7 +12,7 @@ import appstore.containers.UserContainer;
 
 public class ManageUser {
     
-    // login class that will loop until an existing username id entered
+    // login method that will loop until an existing username id entered
     // or the word 'back' is written.
     public static User login () {
         
