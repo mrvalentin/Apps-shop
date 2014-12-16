@@ -1,9 +1,7 @@
-/**
- * @project AppStore
- * @name Container.java
- * @package appstore.containers
- * @created 12-Dec-2014
- * @author ioGhost
+/*
+ *ALL TRESPASSERS WILL BE PROS
+ *
+ *@author Robert K1317131
  */
 package appstore.containers;
 
