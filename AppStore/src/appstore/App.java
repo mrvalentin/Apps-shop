@@ -1,5 +1,10 @@
-//Khalil Jabir K1317897
-
+/**
+ * @project AppStore
+ * @name App.java
+ * @package appstore
+ * @created 15-Dec-2014
+ * @author ioGhost
+ */
 package appstore; 
 public class App {
 
