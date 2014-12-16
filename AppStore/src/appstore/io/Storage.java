@@ -1,4 +1,8 @@
-/**
+/*
+ *ALL TRESPASSERS WILL BE PROS
+ *
+ *@author Robert K1317131
+ */
  * @project AppStore
  * @name Storage.java
  * @package appstore.io
