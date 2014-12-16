@@ -1,9 +1,7 @@
-/**
- * @project AppStore
- * @name Main.java
- * @package appstore
- * @created 12-Dec-2014
- * @author ioGhost
+/*
+ *HIJACKED!
+ *
+ *@author Robert K1317131
  */
 package appstore;
 
@@ -22,7 +20,7 @@ public class Main {
         boolean logged = false; // will run the login loop
         boolean run = true; // will run the main loop
         
-        // welcome message
+        // welcome/version message
         System.out.println("Welcome to AppStore version 0.1\n"
                 + "Created by Khalil, Valentin, Svetlozar & Robert");
         
