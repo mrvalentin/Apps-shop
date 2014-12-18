@@ -58,7 +58,11 @@ public class UserContainer extends Container {
         return null;
     }
     
-    
+    //shows profile of user requested
+    public String showProfile(String username){
+        User u = find(username);
+        return u.showProfile();
+    }
     
     // deletes user with given username
     public void delete(String username) {
