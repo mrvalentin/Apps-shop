@@ -1,12 +1,15 @@
-/*
- *HIJACKED!
- *
- *@author Robert K1317131
+/**
+ * @project AppStore
+ * @name Main.java
+ * @package appstore
+ * @created 12-Dec-2014
+ * @author ioGhost
  */
 package appstore;
 
 import java.util.Scanner;
 import appstore.containers.UserContainer;
+//import appstore.containers.AppContainer;
 
 public class Main {
 
@@ -20,7 +23,7 @@ public class Main {
         boolean logged = false; // will run the login loop
         boolean run = true; // will run the main loop
         
-        // welcome/version message
+        // welcome message
         System.out.println("Welcome to AppStore version 0.1\n"
                 + "Created by Khalil, Valentin, Svetlozar & Robert");
         
@@ -30,9 +33,10 @@ public class Main {
         while (logged == false) {
             
             // fetch user input
-            System.out.println("Please type \"login\" "
+            System.out.println("\n\nPlease type \"login\" "
                     + "if you already have an account or"
                     + " \"register\" to create new one.");
+            System.out.print("Command: ");
             command = input.nextLine();
             
             // login command
@@ -40,17 +44,16 @@ public class Main {
                 // let the manage user class deal with the login
                 user = ManageUser.login();
                 
-                // go out of the loop
-                logged = true;
+                // go out of the loop, only if the user successfully logged
+                if (user != null) {
+                    logged = true;
+                }
             }
             
             // registration command
             else if (command.equals("register")) {
                 // let the manage user class deal with the registration
                 ManageUser.register();
-                
-                // go out of the loop
-                logged = true;
             }
             
             // invalid command
@@ -72,7 +75,7 @@ public class Main {
                     + "\t2) view app\n"
                     + "\t3) update app\n"
                     + "\t4 delete app\n"
-                    + "\n\n"
+                    + "\n"
                     + "USERS\n"
                     + "\t1) view user\n"
                     + "\t2) update user\n"
@@ -84,38 +87,21 @@ public class Main {
             
             
             
-            // adding new app
-            if (command.equals("add app")) {
-                System.out.println("Adding new app...");
-            }
-            
-            // view app info
-            else if (command.equals("view app")) {
+            // switch between the commands
+            switch (command) {
                 
-            }
-            
-            else if (command.equals("update app")) {
-
-            }
-
-            else if (command.equals("delete app")) {
-
-            }
-
-            else if (command.equals("view user")) {
-                //User.showProfile();
-            }
-
-            else if (command.equals("update user")) {
-
-            }
-
-            else if (command.equals("delete user")) {
-
-            }
-
-            else {
-                System.out.println("Invalid command.\n");
+                // view user
+                case "view user":
+                    
+                    // ask for username
+                    System.out.print("Search for: ");
+                    command = input.nextLine();
+                    
+                    // display profile information
+                    //UserContainer.userInformation(command);
+                    
+                    System.out.println("\nPress enter to go back.");
+                
             }
             
         }
