@@ -58,4 +58,34 @@ public class ShoppingCart {
     public void deleteApp(App app){
         l.remove(app);
     }
+    
+    //returns sum of price of all apps based on user that is buying
+    public double getTotalPrice(){
+        
+        Iterator it = l.iterator();
+        
+        double price = 0;
+        
+        while (it.hasNext()){
+            App app;
+            app = (App) it.next();
+            price =+ app.checkPrice(customer);
+        }
+        
+        return price;
+    }
+    
+    //purchase all apps in Shopping Cart
+    public void buyAll(){
+        
+        Iterator it = l.iterator();
+        
+        double price = 0;
+        
+        while (it.hasNext()){
+            App app;
+            app = (App) it.next();
+            app.purchase();
+        }
+    }
 }

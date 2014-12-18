@@ -80,7 +80,7 @@ public class App {
 	}
 	
 	// increment the number of app's purchases
-	public void purchased () {
+	public void purchase () {
 		this.timesPurchased = this.timesPurchased + 1;
 	}
 	
