@@ -17,6 +17,8 @@ public class AppStore {
 
     public static void main(String[] args) {
     
+        //logged in user
+        User u;
         
         Scanner input = new Scanner(System.in); // scanner object
         UserContainer usrCont = new UserContainer();
@@ -49,7 +51,7 @@ public class AppStore {
             switch (command) {
                 
                 case "login":
-                    ManageUser.login();
+                    u = ManageUser.login();
                     logged = true;
                     break;
                     
