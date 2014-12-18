@@ -66,4 +66,7 @@ public class UserContainer extends Container {
         l.remove(u);
     }
     
+    public int totalUsersRegistered(){
+        return l.size();
+    }
 }

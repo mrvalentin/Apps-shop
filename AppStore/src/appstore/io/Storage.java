@@ -3,12 +3,7 @@
  *
  *@author Robert K1317131
  */
- * @project AppStore
- * @name Storage.java
- * @package appstore.io
- * @created 12-Dec-2014
- * @author ioGhost
- */
+
 package appstore.io;
 
 import java.io.*;
