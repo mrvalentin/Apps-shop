@@ -19,7 +19,7 @@ public class Storage {
         
         //  error handling
         try {
-            //  onnects to file
+            //  connects to file
             FileInputStream fileIn = new FileInputStream(filename+".ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             
