@@ -19,6 +19,7 @@ public class AppStore {
     
         
         Scanner input = new Scanner(System.in); // scanner object
+        UserContainer usrCont = new UserContainer();
         
         String command = ""; // storing user input
         
@@ -100,8 +101,14 @@ public class AppStore {
                         //
                         break;
                         
-                    case "edit app":
-                        //
+                    case "delete user":
+                        // fetch user input
+                        System.out.print("Command: ");
+                        command = input.nextLine();
+                        
+                        // delete the user
+                        usrCont.delete(command); 
+                                
                         break;
                     
                     case "exit":
