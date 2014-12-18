@@ -77,13 +77,14 @@ public class ManageApp {
             // replace the array item with the user input
             array[i] = userInput;
         }
-        
+        double cost=Double.parseDouble(array[4]);
+        boolean trial=Boolean.parseBoolean(array[5]);
         // convert some of the objects
         //boolean array[5] = Boolean.valueOf("true");
         
         // create an object of type user to which we'll pass the data we've obtained
         // above during the registration
-        App app = new App(array[0],array[1],array[2],array[3],array[4],array[5]);
+        App app = new App(array[0],array[1],array[2],array[3],cost,trial);
         
         // add the newly created user object in the ArrayList
         container.add(app);

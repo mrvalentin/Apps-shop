@@ -115,5 +115,18 @@ public class App {
         {
             return this.trialAvailable;
         }
-        
+        public void showApp(){
+        String trialoutput="";
+        if(trialAvailable()==true){
+          trialoutput="for free trial";
+        }
+        else{
+          trialoutput="is for purchase";
+        }
+        System.out.println("App Name:"+this.name+"App Developper: "+this.developer+":\n"+
+                "App Description: "+this.description+":\n"+
+                "App Category:"+this.category+":\n"+
+                "Number of downloads: "+this.timesPurchased+":\n"+
+                "The app is: "+trialoutput);
+        }
 }
