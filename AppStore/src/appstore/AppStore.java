@@ -7,18 +7,19 @@
  */
 package appstore;
 
-import java.util.Scanner;
-import appstore.containers.UserContainer;
-import appstore.containers.AppContainer;
-import appstore.ManageUser;
 import appstore.ManageApp;
+import appstore.ManageUser;
+import appstore.containers.AppContainer;
+import appstore.containers.ShoppingCart;
+import appstore.containers.UserContainer;
+import java.util.Scanner;
 
 public class AppStore {
 
     public static void main(String[] args) {
     
         //logged in user
-        User u;
+        User u = null;
         
         Scanner input = new Scanner(System.in); // scanner object
         UserContainer usrCont = new UserContainer();
@@ -77,7 +78,7 @@ public class AppStore {
             System.out.println("\nAvailable commands:\n"
                 + "- add app\n"
                 + "- list app\n"
-                + "- edit app\n"
+                + "- buy app\n"
                 + "- delete app\n"
                 + "- search app\n"
                 + "- get app\n"
@@ -104,12 +105,30 @@ public class AppStore {
                         break;
                         
                     case "list app":
-                        //
+                        System.out.println(appCont.returnAllAppNames());
                         break;
                         
                     case "list users":
-                        //
+                        System.out.println(usrCont.returnAllUserNames());
+                        break;
                         
+                    case "buy apps":
+                        while(true) {
+                            System.out.println("enter appname you want to purchase, enter 'done' to checkout");
+                            command = input.nextLine();
+                            
+                            ShoppingCart cart = new ShoppingCart(u);
+                            
+                            if (command.equals("done")){
+                                System.out.println("total price = "+cart.getTotalPrice());
+                                cart.buyAll();
+                                break;
+                            }
+                            else {
+                                App app = appCont.find(command);
+                                cart.addApp(app);
+                            }
+                        }
                         
                     case "delete user":
                         // fetch user input
