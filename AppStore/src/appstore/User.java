@@ -82,8 +82,8 @@ public class User implements java.io.Serializable {
         this.appPurchased=appPurchased;
     }
     // Shows user information on user's profile
-    public void showProfile () {
-        System.out.println("Username: "+this.username+":\n"
+    public String showProfile () {
+        return("Username: "+this.username+":\n"
         +"Name:"+this.name+"\n"
         +"Address:"+this.address
         +"\n"+"Profession:"+this.profession+"\n");
