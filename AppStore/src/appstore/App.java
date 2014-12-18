@@ -79,9 +79,10 @@ public class App {
 		return this.timesPurchased;
 	}
 	
-	// increment the number of app's purchases
-	public void purchase () {
+	// increment the number of app's purchases and users purchases
+	public void purchase (User u) {
 		this.timesPurchased = this.timesPurchased + 1;
+                u.appPurchased
 	}
 	
 	

@@ -85,7 +85,7 @@ public class ShoppingCart {
         while (it.hasNext()){
             App app;
             app = (App) it.next();
-            app.purchase();
+            app.purchase(customer);
         }
     }
     

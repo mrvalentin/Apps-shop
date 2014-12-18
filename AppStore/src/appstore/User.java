@@ -89,7 +89,7 @@ public class User implements java.io.Serializable {
         +"\n"+"Profession:"+this.profession+"\n");
     }
     //Increment the number of app the user has been purchased
-    public void AppPurchased(){
+    public void appPurchased(){
         this.appPurchased++;
     }
 }
