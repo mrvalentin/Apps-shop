@@ -96,13 +96,9 @@ public class AppStore {
                 // switch between commands
                 switch (command) {
                     
-                    case "search app":
-                        System.out.println("enter name of app");
-                        command = input.nextLine();
-                        //find app
-                        App a = appCont.find(command);
-                        a.showApp();
-                        
+                    case "total purchases":
+                        AppContainer.getTotalPurchases();
+                    
                     case "add app":
                         ManageApp.add();
                         break;
