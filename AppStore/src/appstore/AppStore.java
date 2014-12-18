@@ -22,6 +22,7 @@ public class AppStore {
         
         Scanner input = new Scanner(System.in); // scanner object
         UserContainer usrCont = new UserContainer();
+        AppContainer appCont = new AppContainer();
         
         String command = ""; // storing user input
         
@@ -95,6 +96,13 @@ public class AppStore {
                 // switch between commands
                 switch (command) {
                     
+                    case "search app":
+                        System.out.println("enter name of app");
+                        command = input.nextLine();
+                        //find app
+                        App a = appCont.find(command);
+                        a.showApp();
+                        
                     case "add app":
                         ManageApp.add();
                         break;
