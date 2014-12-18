@@ -49,6 +49,7 @@ public class AppStore {
                 
                 case "login":
                     ManageUser.login();
+                    logged = true;
                     break;
                     
                 case "register":
@@ -65,7 +66,53 @@ public class AppStore {
                     break;
             }
             
-        }       
+        }      
+        
+        while (run == true) {
+            // available commands
+            System.out.println("\nAvailable commands:\n"
+                + "- add app\n"
+                + "- list app\n"
+                + "- edit app\n"
+                + "- delete app\n"
+                + "- search app\n"
+                + "- get app\n"
+                + "-\n"
+                + "- search user\n"
+                + "- edit user\n"
+                + "- delete user\n"
+                + "--- exit");  
+            
+                // fetch user input
+                System.out.print("Command: ");
+                command = input.nextLine();
+                
+                
+                
+                // switch between commands
+                switch (command) {
+                    
+                    case "add app":
+                        //
+                        break;
+                        
+                    case "list app":
+                        //
+                        break;
+                        
+                    case "edit app":
+                        //
+                        break;
+                    
+                    case "exit":
+                        run = false;
+                        break;
+
+                    default:
+                        System.out.println("\nInvalid command.\n");
+                        break;
+                }
+        }
     }
     
 }
