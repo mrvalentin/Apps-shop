@@ -98,7 +98,7 @@ public class AppStore {
                 switch (command) {
                     
                     case "total purchases":
-                        AppContainer.getTotalPurchases();
+                        System.out.println(AppContainer.getTotalPurchases()+"total purchases");
                     
                     case "add app":
                         ManageApp.add();
