@@ -6,7 +6,7 @@
  * @author ioGhost
  */
 package appstore; 
-public class App {
+public class App implements java.io.Serializable {
 
 	private String name;
 	private String developer;
