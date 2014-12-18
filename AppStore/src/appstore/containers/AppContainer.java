@@ -51,6 +51,22 @@ public class AppContainer extends Container {
         l.remove(a);
     }
     
+    //returns list of names with all apps
+    public String returnAllAppNames(){
+        
+        String appnames = "";
+        
+        //initializes iterator
+        Iterator it = l.iterator();
+        
+        while (it.hasNext()){
+            App a = (App) it.next();
+            appnames = appnames.concat(a.getName()+"\n");
+        }
+        
+        return appnames;
+    }
+    
     //returns sum of all apps purchased
     public int getTotalPurchases(){
         //this number will be returned

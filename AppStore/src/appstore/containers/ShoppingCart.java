@@ -88,4 +88,20 @@ public class ShoppingCart {
             app.purchase();
         }
     }
+    
+    //returns list of names with all apps in cart
+    public String returnAllAppNames(){
+        
+        String appnames = "";
+        
+        //initializes iterator
+        Iterator it = l.iterator();
+        
+        while (it.hasNext()){
+            App a = (App) it.next();
+            appnames = appnames.concat(a.getName()+"\n");
+        }
+        
+        return appnames;
+    }
 }

@@ -66,7 +66,24 @@ public class UserContainer extends Container {
         l.remove(u);
     }
     
+    //returns total number of registered users
     public int totalUsersRegistered(){
         return l.size();
+    }
+    
+    //returns list of names with all apps in cart
+    public String returnAllUserNames(){
+        
+        String usernames = "";
+        
+        //initializes iterator
+        Iterator it = l.iterator();
+        
+        while (it.hasNext()){
+            User u = (User) it.next();
+            usernames = usernames.concat(u.getName()+"\n");
+        }
+        
+        return usernames;
     }
 }
