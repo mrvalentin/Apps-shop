@@ -116,6 +116,7 @@ public class App implements java.io.Serializable {
         {
             return this.trialAvailable;
         }
+        
         public void showApp(){
         String trialoutput="";
         if(trialAvailable()==true){
