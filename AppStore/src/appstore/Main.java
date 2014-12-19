@@ -1,63 +1,67 @@
+/**
+ * @project AppStore
+ * @name AppStore.java
+ * @package appstore
+ * @created 18-Dec-2014
+ * @author ioGhost
+ */
 package appstore;
 
+import appstore.ManageApp;
+import appstore.ManageUser;
+import appstore.containers.AppContainer;
+import appstore.containers.ShoppingCart;
 import appstore.containers.UserContainer;
 import java.util.Scanner;
 
-class Main {
+public class AppStore {
+
+    public static void main(String[] args) {
     
-    // main method
-    public static void main (String[] args) {
+        //logged in user
+        User u = null;
         
-        //creates bob user so that you can try logging in as bob
-        /*UserContainer users = new UserContainer();
-        User bob=new User("bob", "Boob", "lalavale", "roach");
-        users.add(bob);
-        users.store(); */
+        Scanner input = new Scanner(System.in); // scanner object
+        UserContainer usrCont = new UserContainer();
+        AppContainer appCont = new AppContainer();
         
-        //an object that represents the current user that is using the program
-        User user;
-        // keeping the application running
-        boolean run = true;
+        String command = ""; // storing user input
         
-        // store the user input
-        String command;
+        boolean logged = false; // is the user logged or not
+        boolean run = true; // used for the main loop
         
-        // initialize the scanner
-        Scanner userInput = new Scanner(System.in);
-        
-        // main loop
-        while (run == true) {
+        // welcome message
+        System.out.println("Welcome to AppStore v0.1\n"
+                + "Created by Khalil, Valentin, Svetlozar & Robert");        
+
+         // login / register loop
+        while (run == true && logged == false) {
             
-            // Display the main menu
-            System.out.println("1.0) User management");
-            System.out.println("\t1.1) Existing user, log-in");
-            System.out.println("\t1.2) New user, sign-up");
+            // available commands
+            System.out.println("Available commands:\n"
+                    + "1) login\n"
+                    + "2) register\n"
+                    + "3) exit\n");
             
-            // Ask for user input
-            System.out.print("\nCommand: ");
-            command = userInput.nextLine();
+            // fetch user input
+            System.out.print("Command: ");
+            command = input.nextLine();
             
-            // start switch statements
+            
+            
+            // switch statement
             switch (command) {
                 
-                // User login
-                case "1.1":
-                    //user login
-                    user = ManageUser.Login();
+                case "login":
+                    u = ManageUser.login();
                     
+                    // only log the user in if they haven't typed 'back'
+                    if (u != null) {logged = true;}
+                    break;
                     
-                    //Login will be called twice with code below  Sincerely, Rob :P
-                    
-                    //If the user can't type his username correctly
-                    if(user == null)
-                        break;
-                    //If the user typed it correctly, the user object gets the info of the person who logged in
-                    user=ManageUser.Login();
-                    
-                    
-                // User registration
-                case "1.2":
-                    ManageUser.Registration();
+                case "register":
+                    ManageUser.register(); // proceed with user registration
+                    System.out.println("\nRegistration completed successfully."); // registration completed
                     break;
                     
                 case "exit":
@@ -65,15 +69,90 @@ class Main {
                     break;
                     
                 default:
-                    System.out.println("Invalid command.\n");
+                    System.out.println("\nInvalid command.\n");
                     break;
             }
             
-        }
+        }      
         
-        // Goodbye message
-        System.out.println("Thank you for using AppStore v0.1 \n"
-                + "Goodbye.");
-    } 
+        while (run == true) {
+            // available commands
+            System.out.println("\nAvailable commands:\n"
+                + "- add app\n"
+                + "- list app\n"
+                + "- buy app\n"
+                + "- delete app\n"
+                + "- search app\n"
+                + "- get app\n"
+                + "-\n"
+                + "- list users\n"
+                + "- edit user\n"
+                + "- delete user\n"
+                + "--- exit");  
+            
+                // fetch user input
+                System.out.print("Command: ");
+                command = input.nextLine();
+                
+                
+                
+                // switch between commands
+                switch (command) {
+                    
+                    case "total purchases":
+                        int total = appCont.getTotalPurchases();
+                        System.out.println(total + " total purchases");
+                        break;
+                    
+                    case "add app":
+                        ManageApp.add();
+                        break;
+                        
+                    case "list app":
+                        System.out.println(appCont.returnAllAppNames());
+                        break;
+                        
+                    case "list users":
+                        System.out.println(usrCont.returnAllUserNames());
+                        break;
+                        
+                    case "buy apps":
+                        while(true) {
+                            System.out.println("enter appname you want to purchase, enter 'done' to checkout");
+                            command = input.nextLine();
+                            
+                            ShoppingCart cart = new ShoppingCart(u);
+                            
+                            if (command.equals("done")){
+                                System.out.println("total price = "+cart.getTotalPrice());
+                                cart.buyAll();
+                                break;
+                            }
+                            else {
+                                App app = appCont.find(command);
+                                cart.addApp(app);
+                            }
+                        }
+                        
+                    case "delete user":
+                        // fetch user input
+                        System.out.println("Username: ");
+                        command = input.nextLine();
+                        
+                        // delete the user
+                        usrCont.delete(command); 
+                        System.out.print("Deleting user from the database..");
+                        break;
+                    
+                    case "exit":
+                        run = false;
+                        break;
+
+                    default:
+                        System.out.println("\nInvalid command.\n");
+                        break;
+                }
+        }
+    }
     
 }
