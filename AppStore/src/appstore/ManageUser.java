@@ -1,120 +1,207 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @project AppStore
+ * @name ManageUser.java
+ * @package appstore
+ * @created 12-Dec-2014
+ * @author ioGhost
  */
-
 package appstore;
 
-import appstore.containers.UserContainer;
 import java.util.Scanner;
+import appstore.containers.UserContainer;
 
-/**
- *
- * @author Valentin
- */
 public class ManageUser {
-    //Login class that is asking for the correct login until it is correct or user typed exit
-    public static User Login() {
-        UserContainer container=new UserContainer();
-        System.out.println("Write down your username,please:");
-        Scanner input=new Scanner(System.in);
-        //the input of the user
-        String user_input;
+    
+    // login method that will loop until an existing username id entered
+    // or the word 'back' is written.
+    public static User login () {
+        
+        // create new UserContainer object
+        // we need it so we can use the find method
+        // and verify is the username present in the ArrayList
+        UserContainer container = new UserContainer();
+        
+        
+        Scanner input = new Scanner(System.in); // create the scanner object
+        String userInput; // storing user input
+        
         //the loop return 
-        do{
-        user_input=input.nextLine();
-        if(container.find(user_input)!=null){
-            return container.find(user_input);
-        }
-        else{
-            System.out.println("Wrong username.\n"
-                    + "Type exit to go to the main menu.\n"
-                    + "Please try again:");
-        }
-        }while(user_input.equals("exit"));
+        do {
+            // ask the user to enter a username that must already
+            // be present in the ArrayList
+            System.out.print("Username: ");
+            userInput = input.nextLine();
+            
+            // check if the username entered is in the ArrayList
+            if (container.find(userInput) != null) {
+                // if username found, return the object and get out of the loop
+                return container.find(userInput);
+            }
+        
+            else{
+                System.out.println("The username you've entered is incorrect.\n"
+                        + "Please try again, or type \"back\" to go back.");
+            }
+        } while( ! userInput.equals("back"));
+        
+        // return null in case the user wants to go back
+        // and have not successfully logged in.
         return null;
     }
-    public static void Registration(){
-        //opening Scanner
-        Scanner input=new Scanner(System.in);
-        //user_input:the variable for what user input
-        String user_input;
-        //as far as container can't be static I have to create object of UserContainer
-        UserContainer container=new UserContainer();
-        //the array that will be overwritten by the real values in "for" loop.
-        String[] array={"username","name","address","profession"};
-        //the next loop overwrite array above with real values.For example element "username" will have have the the real username of user
-        for(int i=0;i<array.length;i++){
-            //display menu
-            System.out.println("Please write "+array[i]+":");
-            //ask for input until it meets Validation criteria
-            do{
-            user_input=input.nextLine();
-            }while(Validation(array[i],user_input));
-            //push the user input at the following array position
-            array[i]=user_input;
+    
+    
+    
+    public static void register () {
+
+        // create new UserContainer object
+        // we need it so we can use the add method
+        // and add the user credentials to the ArrayList
+        UserContainer container = new UserContainer();
+        
+        Scanner input = new Scanner(System.in); // create the scanner object
+        String userInput; // storing user input
+        
+        // the items in this array would be replaced with the user input
+        // values during the for loop below
+        String[] array = {"username", "name", "address", "profession"};
+        
+        // this loop will ask user for input and replace the values of the array
+        // above with the user input
+        for (int i = 0; i < array.length; i++) {
+            
+            // this do loop is used in order to validate each array item
+            // by using the validation class
+            do {
+                // ask for user input
+                System.out.print("Please, enter " + array[i] + ": ");
+                userInput = input.nextLine();
+            }   while ( validation(array[i], userInput) ); // push that input through the validation
+            
+            // replace the array item with the user input
+            array[i] = userInput;
         }
-        //create an object of type User which has the info from the registration(our registered user)
-        User user=new User(array[0],array[1],array[2],array[3]);
-        //add registered user to the array of all users
+        
+        // create an object of type user to which we'll pass the data we've obtained
+        // above during the registration
+        User user = new User(array[0],array[1],array[2],array[3]);
+        
+        // add the newly created user object in the ArrayList
         container.add(user);
-        //saves changes made to user array into file
+        
+        // save the updated ArrayList into a text file
         container.store();
     }
-    public static boolean Validation(String key,String value){
-        String[] censored_words={"fuck","suck","wanker","noob","dick"};
+    
+    
+    
+    // validation method
+    public static boolean validation (String key, String value){
+        
+        // create new UserContainer object
+        // we need it so we can use the find method
+        // and verify is the username present in the ArrayList
+        UserContainer container = new UserContainer();
+        
+        // list of censored words that won't be allowed in the system
+        String[] censored_words={"fuck","suck","wanker","shit","poop"};
+        
+        // check if the user input contains any of the censored words above
         for (String censored_word : censored_words) {
+            
+            // user input match one of the censored words
             if (value.contains(censored_word)) {
-                System.out.println("You can't use censored words.");
+                // display error on the screen
+                System.out.println("You are not allowed to use the word " + value + ".");
+                
+                // since error is found, we are returning true to break the for loop
                 return true;
             }
         }
-        UserContainer container= new UserContainer();
-        switch(key){
+        
+        
+        
+        // each 'key' has its own validation
+        switch (key) {
+            
             case "username":
-                if(container.find(value)!=null){
-                    System.out.println("The username: "+value+" belongs to another user. Please write another name:");
+                // username is already registered
+                if (container.find(value)!= null) {
+                    System.out.println("The username you've chosen is already in use by another member.");
                     return true;
                 }
-                else if(value == null||value.contains(" ")||value.isEmpty()||value.length()>10){
-                    System.out.println("Your username must not have free spaces,be empty or has more than 10 characters.Please write your name again:");
+                
+                // make sure we've provided a value for the username and the username is not longer than 10 characters
+                else if (value == null || value.contains(" ") || value.isEmpty() || value.length() > 10) {
+                    System.out.println("Your username can't contain any 'spaces' be empty or have more than 10 characters.");
                     return true;
                 }
-                else if(value.length()<5){
-                    System.out.println("Username is too short. Please type your name again: ");
+                
+                // minimum number of characters in username that are allowed
+                else if( value.length() < 2 ) {
+                    System.out.println("Your username must contain more than 1 character.");
                     return true;
                 }
+                
+                // no errors found
                 return false;
+                
+                
                 
             case "name":
-                if(value == null||value.isEmpty()){
-                    System.out.println("Your name is required.Please type your name:");
+                // make sure name is provided
+                if (value == null || value.isEmpty()) {
+                    System.out.println("The name field is required.");
                 }
-                else if(value == null||value.contains("#")|| value.contains("*") || value.contains("$")){
-                   System.out.println("Your name cannot contain numbers or symbols, it should only contain characters. Please write your name again:");
+                
+                // check does the name contain any 'special' symbols
+                else if (value == null || value.contains("#") || value.contains("*") || value.contains("$")) {
+                   System.out.println("Your name can contain only A-Z");
                    return true;
                 }
+                
+                // no errors are found
                 return false;
                 
+                
+                
+            // address field validation    
             case "address":
-                if(value == null||value.isEmpty()){
-                    System.out.println("The address can't be empty.Please write your address again:");
+                // address input is empty
+                if (value == null || value.isEmpty()) {
+                    System.out.println("The address field is required.");
                     return true;
                 }
+                
+                // no errors are found
                 return false;
                 
+                
+                
+            // profession field validation
             case "profession":
-                if(value.equals("student")){
-                    System.out.println("Great news! You are eligible for a 25% discount:)");
+                // profession is a student
+                if (value.equals("student")) {
+                    System.out.println("Your account is eligible for 25% discount.");
                     return false;
                 }
+                
+                // profession is a educational institution
+                else if (value.equals("university")) {
+                    System.out.println("Your account is eligible for 15% discount.");
+                    return false;
+                }
+                
+                // no profession provided provided
                 else if(value.isEmpty()||value == null){
-                    System.out.println("The profession can't be empty.Please write your profession again:");
+                    System.out.println("The profession field is required.");
                     return true;
                 }
+                
+                // returning false if no errors found
                 return false;
         }
+        
+        // return false if none of the fields 'activates'
         return false;
     }
 }
