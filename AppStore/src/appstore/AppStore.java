@@ -99,7 +99,8 @@ public class AppStore {
                     
                     case "total purchases":
                         int total = appCont.getTotalPurchases();
-                        System.out.println(total+"total purchases");
+                        System.out.println(total + " total purchases");
+                        break;
                     
                     case "add app":
                         ManageApp.add();
@@ -133,12 +134,12 @@ public class AppStore {
                         
                     case "delete user":
                         // fetch user input
-                        System.out.print("Command: ");
+                        System.out.println("Username: ");
                         command = input.nextLine();
                         
                         // delete the user
                         usrCont.delete(command); 
-                                
+                        System.out.print("Deleting user from the database..");
                         break;
                     
                     case "exit":
